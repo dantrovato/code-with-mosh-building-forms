@@ -1,9 +1,14 @@
 import "./Form.css";
+import { useState } from "react";
 
 const Form = () => {
+  const [person, setPerson] = useState({
+    name: "",
+    age: "",
+  });
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("submitted");
+    console.log(person);
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -11,13 +16,29 @@ const Form = () => {
         <label htmlFor="name" className="form-label">
           Name
         </label>
-        <input id="name" type="text" className="form-control" />
+        <input
+          onChange={(event) =>
+            setPerson({ ...person, name: event.target.value })
+          }
+          value={person.name}
+          id="name"
+          type="text"
+          className="form-control"
+        />
       </div>
       <div className="mb-3">
         <label htmlFor="age" className="form-label">
           Age
         </label>
-        <input id="age" type="number" className="form-control" />
+        <input
+          onChange={(event) =>
+            setPerson({ ...person, age: event.target.value })
+          }
+          value={person.age}
+          id="age"
+          type="number"
+          className="form-control"
+        />
       </div>
       <button className="btn btn-primary" type="submit">
         Submit
