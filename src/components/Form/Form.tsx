@@ -8,7 +8,6 @@ const Form = () => {
   });
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log(person);
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -16,6 +15,7 @@ const Form = () => {
         <label htmlFor="name" className="form-label">
           Name
         </label>
+
         <input
           onChange={(event) =>
             setPerson({ ...person, name: event.target.value })
@@ -30,6 +30,7 @@ const Form = () => {
         <label htmlFor="age" className="form-label">
           Age
         </label>
+
         <input
           onChange={(event) =>
             setPerson({ ...person, age: event.target.value })
